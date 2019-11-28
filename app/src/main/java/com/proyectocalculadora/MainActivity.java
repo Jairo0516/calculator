@@ -29,10 +29,14 @@ public class MainActivity extends AppCompatActivity {
     private Button btnNumDividir;
     private Button btnBorrar;
     private Button btnPunto;
+    private Button btnIgual;
 
     private TextView textTextOperation;
 
     private boolean clicBtnMas, clicBtnMenos, clicBtnMultiplicar, clicBtnDividir, clicBtnPunto;
+
+
+    private ExpresionRegular expresionRegular;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -233,6 +237,19 @@ public class MainActivity extends AppCompatActivity {
                     textTextOperation.setText(textAnterior + ".");
                     clicBtnPunto = true;
                     accionesAdcicionales(R.id.btnPunto);
+                }
+            }
+        });
+
+        btnIgual = findViewById( R.id.btnIgual );
+        btnIgual.setOnClickListener( new View.OnClickListener(){
+            @Override
+            public void onClick(View v) {
+                String textAnterior = textTextOperation.getText().toString();
+
+                if( textAnterior.trim().length() > 0 ){
+                    //String resultado = expresionRegular.resolverFormula("1*2");
+                    textTextOperation.setText( "2");
                 }
             }
         });
